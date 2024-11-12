@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\thuc tap chuyen de 1\\backend\\K22CNT3_NKL_2210900035_Project2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CD1B1CAE-B2DA-4D1E-B6A7-AB1D4C3DDACA}|K22CNT3_NKL_2210900035_Project2\\K22CNT3_NKL_2210900035_Project2.csproj|c:\\thuc tap chuyen de 1\\backend\\k22cnt3_nkl_2210900035_project2\\k22cnt3_nkl_2210900035_project2\\views\\comments\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CD1B1CAE-B2DA-4D1E-B6A7-AB1D4C3DDACA}|K22CNT3_NKL_2210900035_Project2\\K22CNT3_NKL_2210900035_Project2.csproj|solutionrelative:k22cnt3_nkl_2210900035_project2\\views\\comments\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD1B1CAE-B2DA-4D1E-B6A7-AB1D4C3DDACA}|K22CNT3_NKL_2210900035_Project2\\K22CNT3_NKL_2210900035_Project2.csproj|c:\\thuc tap chuyen de 1\\backend\\k22cnt3_nkl_2210900035_project2\\k22cnt3_nkl_2210900035_project2\\views\\chapters\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CD1B1CAE-B2DA-4D1E-B6A7-AB1D4C3DDACA}|K22CNT3_NKL_2210900035_Project2\\K22CNT3_NKL_2210900035_Project2.csproj|solutionrelative:k22cnt3_nkl_2210900035_project2\\views\\chapters\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\thuc tap chuyen de 1\\backend\\K22CNT3_NKL_2210900035_Project2\\K22CNT3_NKL_2210900035_Project2\\Views\\COMMENTs\\Create.cshtml",
+              "RelativeDocumentMoniker": "K22CNT3_NKL_2210900035_Project2\\Views\\COMMENTs\\Create.cshtml",
+              "ToolTip": "C:\\thuc tap chuyen de 1\\backend\\K22CNT3_NKL_2210900035_Project2\\K22CNT3_NKL_2210900035_Project2\\Views\\COMMENTs\\Create.cshtml",
+              "RelativeToolTip": "K22CNT3_NKL_2210900035_Project2\\Views\\COMMENTs\\Create.cshtml",
+              "ViewState": "AQIAAJEAAAAAAAAAAAAqwKUAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-12T13:59:25.309Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\thuc tap chuyen de 1\\backend\\K22CNT3_NKL_2210900035_Project2\\K22CNT3_NKL_2210900035_Project2\\Views\\CHAPTERs\\Create.cshtml",
+              "RelativeDocumentMoniker": "K22CNT3_NKL_2210900035_Project2\\Views\\CHAPTERs\\Create.cshtml",
+              "ToolTip": "C:\\thuc tap chuyen de 1\\backend\\K22CNT3_NKL_2210900035_Project2\\K22CNT3_NKL_2210900035_Project2\\Views\\CHAPTERs\\Create.cshtml",
+              "RelativeToolTip": "K22CNT3_NKL_2210900035_Project2\\Views\\CHAPTERs\\Create.cshtml",
+              "ViewState": "AQIAAJMAAAAAAAAAAAAqwKYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-12T13:56:00.861Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

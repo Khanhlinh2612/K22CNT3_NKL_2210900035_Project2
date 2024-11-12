@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truyện Yêu Thích</title>
+    <link rel="stylesheet" href="../css/favorites.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <h1>Đọc Truyện</h1>
+            </a>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm truyện..." id="search">
+            <button id="search-btn">Tìm kiếm</button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="truyen-moi.html">Truyện Mới</a></li>
+                <li><a href="truyen-hot.html">Truyện Hot</a></li>
+                <li><a href="theloai.html">Thể Loại</a></li>
+                <li><a href="favorites.html">Yêu Thích</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Danh sách truyện yêu thích -->
+    <section class="favorites">
+        <h2>Danh Sách Yêu Thích</h2>
+        <div class="favorite-list">
+            <!-- Các truyện yêu thích sẽ được load tại đây từ Local Storage -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Đọc Truyện. All rights reserved.</p>
+        <div class="contact">
+            <p>Liên hệ với chúng tôi qua:</p>
+            <a href="https://www.facebook.com/yourprofile" target="_blank">
+                <i class="fab fa-facebook"></i> Facebook
+            </a> |
+            <a href="mailto:phanvietvuong0601@gmail.com">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            const favoriteList = document.querySelector('.favorite-list');
+            
+            if (favorites.length === 0) {
+                favoriteList.innerHTML = "<p>Bạn chưa có truyện yêu thích nào.</p>";
+            } else {
+                favorites.forEach(fav => {
+                    const storyItem = document.createElement('div');
+                    storyItem.classList.add('favorite-item');
+                    storyItem.innerHTML = `
+                        <img src="${fav.image}" alt="${fav.name}">
+                        <h3>${fav.name}</h3>
+                        <button onclick="removeFromFavorites('${fav.name}')">Xóa khỏi yêu thích</button>
+                    `;
+                    favoriteList.appendChild(storyItem);
+                });
+            }
+        });
+
+        function removeFromFavorites(storyName) {
+            let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            favorites = favorites.filter(fav => fav.name !== storyName);
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+            alert(storyName + " đã được xóa khỏi yêu thích.");
+            location.reload();
+        }
+    </script>
+</body>
+</html>

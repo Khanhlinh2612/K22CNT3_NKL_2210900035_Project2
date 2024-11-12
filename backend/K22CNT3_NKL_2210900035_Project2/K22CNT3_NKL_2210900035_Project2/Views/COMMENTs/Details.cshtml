@@ -1,0 +1,50 @@
+﻿@model K22CNT3_NKL_2210900035_Project2.Models.COMMENT
+
+@{
+    ViewBag.Title = "Chi tiết bình luận";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chi tiết bình luận</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.noi_dung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.noi_dung)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ngay_binh_luan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ngay_binh_luan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGUOI_DUNG.ten_dang_nhap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGUOI_DUNG.ten_dang_nhap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STORY.ten_truyen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STORY.ten_truyen)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ma_binh_luan }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,137 @@
+﻿@model IEnumerable<K22CNT3_NKL_2210900035_Project2.Models.STORY>
+
+@{
+    ViewBag.Title = "Quản lý truyện";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f6f8;
+        color: #333;
+    }
+
+    h2 {
+        color: #333;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+    }
+
+        .table th, .table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .table th {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+
+        .table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+    p {
+        margin-bottom: 20px;
+    }
+
+    .btn-create {
+        background-color: #28a745;
+        color: white;
+        padding: 10px 15px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        display: inline-block;
+    }
+
+        .btn-create:hover {
+            background-color: #218838;
+        }
+
+    .btn-action {
+        padding: 6px 12px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        color: white;
+        margin-right: 5px;
+        display: inline-block;
+    }
+
+    .btn-edit {
+        background-color: #ffc107;
+    }
+
+        .btn-edit:hover {
+            background-color: #e0a800;
+        }
+
+    .btn-details {
+        background-color: #17a2b8;
+    }
+
+        .btn-details:hover {
+            background-color: #138496;
+        }
+
+    .btn-delete {
+        background-color: #dc3545;
+    }
+
+        .btn-delete:hover {
+            background-color: #c82333;
+        }
+</style>
+
+<h2>Quản lý truyện</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn-create" })
+</p>
+
+<table class="table">
+    <tr>
+        <th>Tên truyện</th> 
+        <th>Tác giả</th>
+        <th>Thể loại</th>
+        <th>Mô tả</th>
+        <th>Ngày đăng</th>
+        <th>Người đăng</th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.ten_truyen)</td>
+            <td>@Html.DisplayFor(modelItem => item.tac_gia)</td>
+            <td>@Html.DisplayFor(modelItem => item.the_loai)</td>
+            <td>@Html.DisplayFor(modelItem => item.mo_ta)</td>
+            <td>@Html.DisplayFor(modelItem => item.ngay_dang)</td>
+            <td>@Html.DisplayFor(modelItem => item.NGUOI_DUNG.ten_dang_nhap)</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ma_truyen }, new { @class = "btn-action btn-edit" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ma_truyen }, new { @class = "btn-action btn-details" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ma_truyen }, new { @class = "btn-action btn-delete" })
+            </td>
+        </tr>
+    }
+</table>

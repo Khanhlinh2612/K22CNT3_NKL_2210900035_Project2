@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thể Loại Truyện</title>
+    <link rel="stylesheet" href="../css/theloai.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <h1>Đọc Truyện</h1>
+            </a>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm truyện..." id="search">
+            <button id="search-btn">Tìm kiếm</button>
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="truyen-moi.html">Truyện Mới</a></li>
+                <li><a href="truyen-hot.html">Truyện Hot</a></li>
+                <li><a href="theloai.html">Thể Loại</a></li>
+                <li><a href="favorites.html">Yêu Thích</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Viễn Tưởng Section -->
+    <section class="stories">
+        <h2>Viễn Tưởng</h2>
+        <div class="story-list">
+            <div class="story-item" data-link="truyen1.html">
+                <img src="anh/truyen1.jpg" alt="Truyện 1">
+                <h3>Truyện Viễn Tưởng 1</h3>
+                <h4>2024</h4>
+                <button onclick="openStoryPage('Truyện Viễn Tưởng 1', 'anh/truyen1.jpg')">Đọc ngay</button>
+                <button onclick="addToFavorites('Truyện Viễn Tưởng 1', 'anh/truyen1.jpg')">Yêu Thích</button>
+            </div>
+            <div class="story-item" data-link="truyen2.html">
+                <img src="anh/truyen2.jpg" alt="Truyện 2">
+                <h3>Truyện Viễn Tưởng 2</h3>
+                <h4>2024</h4>
+                <button onclick="openStoryPage('Truyện Viễn Tưởng 2', 'anh/truyen2.jpg')">Đọc ngay</button>
+                <button onclick="addToFavorites('Truyện Viễn Tưởng 2', 'anh/truyen2.jpg')">Yêu Thích</button>
+            </div>
+            <!-- Thêm các truyện khác tại đây -->
+        </div>
+    </section>
+
+    <!-- Tình Cảm Section -->
+    <section class="stories">
+        <h2>Tình Cảm</h2>
+        <div class="story-list">
+            <div class="story-item" data-link="truyen3.html">
+                <img src="anh/truyen3.jpg" alt="Truyện 3">
+                <h3>Truyện Tình Cảm 1</h3>
+                <h4>2024</h4>
+                <button onclick="openStoryPage('Truyện Tình Cảm 1', 'anh/truyen3.jpg')">Đọc ngay</button>
+                <button onclick="addToFavorites('Truyện Tình Cảm 1', 'anh/truyen3.jpg')">Yêu Thích</button>
+            </div>
+            <div class="story-item" data-link="truyen4.html">
+                <img src="anh/truyen4.jpg" alt="Truyện 4">
+                <h3>Truyện Tình Cảm 2</h3>
+                <h4>2024</h4>
+                <button onclick="openStoryPage('Truyện Tình Cảm 2', 'anh/truyen4.jpg')">Đọc ngay</button>
+                <button onclick="addToFavorites('Truyện Tình Cảm 2', 'anh/truyen4.jpg')">Yêu Thích</button>
+            </div>
+            <!-- Thêm các truyện khác tại đây -->
+        </div>
+    </section>
+
+    <!-- Hài Hước Section -->
+    <section class="stories">
+        <h2>Hài Hước</h2>
+        <div class="story-list">
+            <div class="story-item" data-link="truyen5.html">
+                <img src="anh/truyen5.jpg" alt="Truyện 5">
+                <h3>Truyện Hài Hước 1</h3>
+                <h4>2024</h4>
+                <button onclick="openStoryPage('Truyện Hài Hước 1', 'anh/truyen5.jpg')">Đọc ngay</button>
+                <button onclick="addToFavorites('Truyện Hài Hước 1', 'anh/truyen5.jpg')">Yêu Thích</button>
+            </div>
+            <div class="story-item" data-link="truyen6.html">
+                <img src="anh/truyen6.jpg" alt="Truyện 6">
+                <h3>Truyện Hài Hước 2</h3>
+                <h4>2024</h4>
+                <button onclick="openStoryPage('Truyện Hài Hước 2', 'anh/truyen6.jpg')">Đọc ngay</button>
+                <button onclick="addToFavorites('Truyện Hài Hước 2', 'anh/truyen6.jpg')">Yêu Thích</button>
+            </div>
+            <!-- Thêm các truyện khác tại đây -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Đọc Truyện. All rights reserved.</p>
+        <div class="contact">
+            <p>Liên hệ với chúng tôi qua:</p>
+            <a href="https://www.facebook.com/yourprofile" target="_blank">
+                <i class="fab fa-facebook"></i> Facebook
+            </a> |
+            <a href="mailto:phanvietvuong0601@gmail.com">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        function openStoryPage(storyName, storyImage) {
+            alert("Đang mở truyện: " + storyName);
+            // Redirect to story page or load the story content
+        }
+
+        function addToFavorites(storyName, storyImage) {
+            // Lấy danh sách yêu thích từ Local Storage hoặc khởi tạo danh sách rỗng nếu chưa có
+            let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    
+            // Kiểm tra xem truyện đã có trong danh sách yêu thích chưa
+            if (!favorites.some(fav => fav.name === storyName)) {
+                // Thêm truyện vào danh sách
+                favorites.push({ name: storyName, image: storyImage });
+                localStorage.setItem('favorites', JSON.stringify(favorites));
+                alert(storyName + " đã được thêm vào yêu thích.");
+            } else {
+                alert(storyName + " đã có trong danh sách yêu thích.");
+            }
+        }
+    </script>
+</body>
+</html>

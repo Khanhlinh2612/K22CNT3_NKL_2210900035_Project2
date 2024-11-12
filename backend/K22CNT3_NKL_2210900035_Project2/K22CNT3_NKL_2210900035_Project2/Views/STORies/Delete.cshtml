@@ -1,0 +1,72 @@
+﻿@model K22CNT3_NKL_2210900035_Project2.Models.STORY
+
+@{
+    ViewBag.Title = "xóa truyện";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>xóa truyện</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ten_truyen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ten_truyen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tac_gia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tac_gia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.the_loai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.the_loai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mo_ta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mo_ta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ngay_dang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ngay_dang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGUOI_DUNG.ten_dang_nhap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGUOI_DUNG.ten_dang_nhap)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

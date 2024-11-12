@@ -1,0 +1,174 @@
+﻿@{
+    ViewBag.Title = "Trang Quản Trị - Web Đọc Truyện";
+}
+
+<main>
+    <!-- Chào mừng đến trang quản trị -->
+    <section class="row" aria-labelledby="adminTitle">
+        <h1 id="title" class="text-center">Chào Mừng Đến Trang Quản Trị</h1>
+        <p class="lead text-center">Quản lý tất cả các phần trong hệ thống của Web Đọc Truyện tại đây. Dưới đây là các chức năng quản lý truyện, chương, người dùng, bình luận, và quản lý tài khoản admin.</p>
+    </section>
+
+    <div class="row">
+        <!-- Section 1: Quản trị -->
+        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
+            <h2 id="gettingStartedTitle">Quản Lý Tài Khoản Admin</h2>
+            <p>
+                Quản lý tài khoản của các Admin trên hệ thống, nơi bạn có thể thêm, chỉnh sửa hoặc xóa tài khoản quản trị viên.
+            </p>
+            <p><a class="btn btn-primary" href="@Url.Action("Index", "QUAN_TRI")">Quản Lý Admin &raquo;</a></p> <!-- Liên kết đến trang QUAN_TRI -->
+        </section>
+
+        <!-- Section 2: Quản lý người dùng -->
+        <section class="col-md-4" aria-labelledby="librariesTitle">
+            <h2 id="librariesTitle">Quản Lý Tài Khoản Người Dùng</h2>
+            <p>
+                Quản lý tài khoản người dùng trên nền tảng Web Đọc Truyện. Bạn có thể chỉnh sửa thông tin người dùng và theo dõi hoạt động của họ.
+            </p>
+            <p><a class="btn btn-success" href="@Url.Action("Index", "User")">Quản Lý Người Dùng &raquo;</a></p> <!-- Liên kết đến trang User -->
+        </section>
+
+        <!-- Section 3: Quản lý truyện -->
+        <section class="col-md-4" aria-labelledby="hostingTitle">
+            <h2 id="hostingTitle">Quản Lý Truyện</h2>
+            <p>
+                Khám phá và quản lý tất cả các câu chuyện trên trang web. Bạn có thể thêm, chỉnh sửa, hoặc xóa truyện.
+            </p>
+            <p><a class="btn btn-warning" href="@Url.Action("Index", "Stories")">Quản Lý Truyện &raquo;</a></p> <!-- Liên kết đến trang Stories -->
+        </section>
+    </div>
+
+    <div class="row">
+        <!-- Section 4: Quản lý chương -->
+        <section class="col-md-4" aria-labelledby="chapterTitle">
+            <h2 id="chapterTitle">Quản Lý Chương</h2>
+            <p>
+                Quản lý các chương của truyện, bạn có thể thêm, sửa hoặc xóa các chương trong mỗi truyện.
+            </p>
+            <p><a class="btn btn-info" href="@Url.Action("Index", "CHAPTERs")">Quản Lý Chương &raquo;</a></p> <!-- Liên kết đến trang CHAPTERs -->
+        </section>
+
+        <!-- Section 5: Quản lý bình luận -->
+        <section class="col-md-4" aria-labelledby="commentTitle">
+            <h2 id="commentTitle">Quản Lý Bình Luận</h2>
+            <p>
+                Theo dõi và quản lý các bình luận của người dùng. Bạn có thể duyệt qua và xóa các bình luận nếu cần thiết.
+            </p>
+            <p><a class="btn btn-danger" href="@Url.Action("Index", "COMMENTs")">Quản Lý Bình Luận &raquo;</a></p> <!-- Liên kết đến trang COMMENTs -->
+        </section>
+    </div>
+</main>
+
+<!-- CSS cho sinh động -->
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+    }
+
+    #title {
+        font-size: 2.5rem;
+        color: #007bff;
+        font-weight: 700;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .lead {
+        font-size: 1.25rem;
+        color: #555;
+        margin-bottom: 30px;
+    }
+
+    .row {
+        margin-top: 30px;
+    }
+
+    .col-md-4 {
+        margin-bottom: 20px;
+    }
+
+    .section-title {
+        color: #007bff;
+        font-size: 1.75rem;
+        font-weight: 600;
+    }
+
+    .btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+        text-decoration: none;
+        border-radius: 5px;
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    .btn-success {
+        background-color: #28a745;
+        color: white;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-success:hover {
+            background-color: #218838;
+        }
+
+    .btn-warning {
+        background-color: #ffc107;
+        color: white;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-warning:hover {
+            background-color: #e0a800;
+        }
+
+    .btn-info {
+        background-color: #17a2b8;
+        color: white;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-info:hover {
+            background-color: #138496;
+        }
+
+    .btn-danger {
+        background-color: #dc3545;
+        color: white;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+
+    .row .col-md-4 {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+    }
+
+        .row .col-md-4:hover {
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+</style>

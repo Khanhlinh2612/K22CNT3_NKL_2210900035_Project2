@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="K22CNT3_NKL_2210900035_Project2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CHAPTER">
+    <Key>
+      <PropertyRef Name="ma_chuong" />
+    </Key>
+    <Property Name="ma_chuong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="so_chuong" Type="Int32" Nullable="false" />
+    <Property Name="ten_chuong" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="noi_dung" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ngay_dang" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ma_truyen" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="STORY" Relationship="Self.FK__CHAPTER__ma_truy__5070F446" FromRole="CHAPTER" ToRole="STORY" />
+  </EntityType>
+  <EntityType Name="COMMENT">
+    <Key>
+      <PropertyRef Name="ma_binh_luan" />
+    </Key>
+    <Property Name="ma_binh_luan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="noi_dung" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ngay_binh_luan" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ma_nguoi_dung" Type="Int32" Nullable="false" />
+    <Property Name="ma_truyen" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="NGUOI_DUNG" Relationship="Self.FK__COMMENT__ma_nguo__534D60F1" FromRole="COMMENT" ToRole="NGUOI_DUNG" />
+    <NavigationProperty Name="STORY" Relationship="Self.FK__COMMENT__ma_truy__5441852A" FromRole="COMMENT" ToRole="STORY" />
+  </EntityType>
+  <EntityType Name="NGUOI_DUNG">
+    <Key>
+      <PropertyRef Name="ma_nguoi_dung" />
+    </Key>
+    <Property Name="ma_nguoi_dung" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ten_dang_nhap" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="mat_khau" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ngay_dang_ky" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="COMMENTs" Relationship="Self.FK__COMMENT__ma_nguo__534D60F1" FromRole="NGUOI_DUNG" ToRole="COMMENT" />
+    <NavigationProperty Name="STORies" Relationship="Self.FK__STORY__nguoi_dan__4D94879B" FromRole="NGUOI_DUNG" ToRole="STORY" />
+  </EntityType>
+  <EntityType Name="QUAN_TRI">
+    <Key>
+      <PropertyRef Name="ma_quan_tri" />
+    </Key>
+    <Property Name="ma_quan_tri" Type="Int32" Nullable="false" />
+    <Property Name="mat_khau" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ten_dang_nhap" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ngay_tao" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="trang_thai" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="STORY">
+    <Key>
+      <PropertyRef Name="ma_truyen" />
+    </Key>
+    <Property Name="ma_truyen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ten_truyen" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tac_gia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="the_loai" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="mo_ta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ngay_dang" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="nguoi_dang" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CHAPTERs" Relationship="Self.FK__CHAPTER__ma_truy__5070F446" FromRole="STORY" ToRole="CHAPTER" />
+    <NavigationProperty Name="COMMENTs" Relationship="Self.FK__COMMENT__ma_truy__5441852A" FromRole="STORY" ToRole="COMMENT" />
+    <NavigationProperty Name="NGUOI_DUNG" Relationship="Self.FK__STORY__nguoi_dan__4D94879B" FromRole="STORY" ToRole="NGUOI_DUNG" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__CHAPTER__ma_truy__5070F446">
+    <End Role="STORY" Type="Self.STORY" Multiplicity="1" />
+    <End Role="CHAPTER" Type="Self.CHAPTER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STORY">
+        <PropertyRef Name="ma_truyen" />
+      </Principal>
+      <Dependent Role="CHAPTER">
+        <PropertyRef Name="ma_truyen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__COMMENT__ma_nguo__534D60F1">
+    <End Role="NGUOI_DUNG" Type="Self.NGUOI_DUNG" Multiplicity="1" />
+    <End Role="COMMENT" Type="Self.COMMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NGUOI_DUNG">
+        <PropertyRef Name="ma_nguoi_dung" />
+      </Principal>
+      <Dependent Role="COMMENT">
+        <PropertyRef Name="ma_nguoi_dung" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__COMMENT__ma_truy__5441852A">
+    <End Role="STORY" Type="Self.STORY" Multiplicity="1" />
+    <End Role="COMMENT" Type="Self.COMMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STORY">
+        <PropertyRef Name="ma_truyen" />
+      </Principal>
+      <Dependent Role="COMMENT">
+        <PropertyRef Name="ma_truyen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__STORY__nguoi_dan__4D94879B">
+    <End Role="NGUOI_DUNG" Type="Self.NGUOI_DUNG" Multiplicity="1" />
+    <End Role="STORY" Type="Self.STORY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NGUOI_DUNG">
+        <PropertyRef Name="ma_nguoi_dung" />
+      </Principal>
+      <Dependent Role="STORY">
+        <PropertyRef Name="nguoi_dang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="K22CNT3_NKL_2210900035_Project2Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CHAPTERs" EntityType="Self.CHAPTER" />
+    <EntitySet Name="COMMENTs" EntityType="Self.COMMENT" />
+    <EntitySet Name="NGUOI_DUNG" EntityType="Self.NGUOI_DUNG" />
+    <EntitySet Name="QUAN_TRI" EntityType="Self.QUAN_TRI" />
+    <EntitySet Name="STORies" EntityType="Self.STORY" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK__CHAPTER__ma_truy__5070F446" Association="Self.FK__CHAPTER__ma_truy__5070F446">
+      <End Role="STORY" EntitySet="STORies" />
+      <End Role="CHAPTER" EntitySet="CHAPTERs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__COMMENT__ma_nguo__534D60F1" Association="Self.FK__COMMENT__ma_nguo__534D60F1">
+      <End Role="NGUOI_DUNG" EntitySet="NGUOI_DUNG" />
+      <End Role="COMMENT" EntitySet="COMMENTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__COMMENT__ma_truy__5441852A" Association="Self.FK__COMMENT__ma_truy__5441852A">
+      <End Role="STORY" EntitySet="STORies" />
+      <End Role="COMMENT" EntitySet="COMMENTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__STORY__nguoi_dan__4D94879B" Association="Self.FK__STORY__nguoi_dan__4D94879B">
+      <End Role="NGUOI_DUNG" EntitySet="NGUOI_DUNG" />
+      <End Role="STORY" EntitySet="STORies" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(K22CNT3_NKL_2210900035_Project2Model.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(K22CNT3_NKL_2210900035_Project2Model.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

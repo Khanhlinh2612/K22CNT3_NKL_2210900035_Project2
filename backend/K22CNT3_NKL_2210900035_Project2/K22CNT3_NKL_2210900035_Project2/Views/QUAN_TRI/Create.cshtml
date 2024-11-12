@@ -1,0 +1,187 @@
+﻿@model K22CNT3_NKL_2210900035_Project2.Models.QUAN_TRI
+
+@{
+    ViewBag.Title = "Tạo mới tài khoản admin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tạo mới tài khoản admin</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>QUẢN TRỊ</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <!-- Mật khẩu -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.mat_khau, "Mật khẩu", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.mat_khau, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập mật khẩu" } })
+                @Html.ValidationMessageFor(model => model.mat_khau, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Tên đăng nhập -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.ten_dang_nhap, "Tên đăng nhập", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ten_dang_nhap, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập tên đăng nhập" } })
+                @Html.ValidationMessageFor(model => model.ten_dang_nhap, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.email, "Email", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập email" } })
+                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Ngày tạo -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.ngay_tao, "Ngày tạo", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ngay_tao, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                @Html.ValidationMessageFor(model => model.ngay_tao, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Trạng thái -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.trang_thai, "Trạng thái", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.trang_thai, new { htmlAttributes = new { @class = "form-control", placeholder = "Chọn trạng thái" } })
+                @Html.ValidationMessageFor(model => model.trang_thai, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Submit button -->
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Tạo mới" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div class="back-link">
+    @Html.ActionLink("Quay lại danh sách", "Index")
+</div>
+
+<style>
+    /* Cải tiến chung cho layout và form */
+    .form-horizontal {
+        background-color: #f4f7f6;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        font-family: Arial, sans-serif;
+        margin: 0 auto;
+        max-width: 700px;
+    }
+
+    /* Tiêu đề chính */
+    h2 {
+        color: #007BFF;
+        font-size: 28px;
+        margin-bottom: 30px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    /* Tiêu đề phụ trong form */
+    h4 {
+        color: #333;
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    /* Style cho các nhãn của form */
+    .form-group label {
+        color: #555;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    /* Cải thiện input trong form */
+    .form-control {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 12px;
+        font-size: 14px;
+        width: 100%;
+        margin-top: 5px;
+        transition: border-color 0.3s ease;
+    }
+
+        .form-control:focus {
+            border-color: #007BFF;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+        }
+
+    /* Style cho các button */
+    input[type="submit"] {
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        padding: 14px 28px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+    /* Style cho các thông báo lỗi */
+    .text-danger {
+        font-size: 14px;
+        color: red;
+    }
+
+    /* Style cho các liên kết */
+    a {
+        color: #007BFF;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+    /* Cải thiện các form-group */
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+        .form-group .control-label {
+            text-align: left;
+        }
+
+    /* Cải tiến phần quay lại */
+    .back-link {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+        .back-link a {
+            color: #007BFF;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+            .back-link a:hover {
+                text-decoration: underline;
+            }
+
+</style>

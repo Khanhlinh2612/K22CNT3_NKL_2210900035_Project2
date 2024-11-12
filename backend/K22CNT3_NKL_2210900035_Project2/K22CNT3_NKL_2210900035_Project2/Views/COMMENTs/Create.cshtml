@@ -1,0 +1,169 @@
+﻿@model K22CNT3_NKL_2210900035_Project2.Models.COMMENT
+
+@{
+    ViewBag.Title = "Tạo mới bình luận";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tạo mới bình luận</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>BÌNH LUẬN</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <!-- Nội dung bình luận -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.noi_dung, "Nội dung bình luận", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.noi_dung, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập nội dung bình luận" } })
+                @Html.ValidationMessageFor(model => model.noi_dung, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Ngày bình luận -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.ngay_binh_luan, "Ngày bình luận", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ngay_binh_luan, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                @Html.ValidationMessageFor(model => model.ngay_binh_luan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Mã người dùng -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.ma_nguoi_dung, "Mã người dùng", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ma_nguoi_dung", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ma_nguoi_dung, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Mã truyện -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.ma_truyen, "Mã truyện", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ma_truyen", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ma_truyen, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Nút tạo bình luận -->
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Tạo bình luận" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div class="back-link">
+    @Html.ActionLink("Quay lại danh sách", "Index")
+</div>
+
+<style>
+    /* Cải tiến CSS */
+    .form-horizontal {
+        background-color: #f4f7f6;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        font-family: Arial, sans-serif;
+        margin: 0 auto;
+        max-width: 700px;
+    }
+
+    h2 {
+        color: #007BFF;
+        font-size: 28px;
+        margin-bottom: 30px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    h4 {
+        color: #0056b3;
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .form-group label {
+        color: #555;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .form-control {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 12px;
+        font-size: 14px;
+        width: 100%;
+        margin-top: 5px;
+        transition: border-color 0.3s ease;
+    }
+
+        .form-control:focus {
+            border-color: #007BFF;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+        }
+
+    input[type="submit"] {
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        padding: 14px 28px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+    .text-danger {
+        font-size: 14px;
+        color: red;
+    }
+
+    a {
+        color: #007BFF;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+        .form-group .control-label {
+            text-align: left;
+        }
+
+    /* Cải thiện phần quay lại */
+    .back-link {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+        .back-link a {
+            color: #007BFF;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+            .back-link a:hover {
+                text-decoration: underline;
+            }
+</style>

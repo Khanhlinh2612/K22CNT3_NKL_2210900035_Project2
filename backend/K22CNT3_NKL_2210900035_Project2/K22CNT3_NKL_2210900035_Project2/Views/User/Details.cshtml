@@ -1,0 +1,50 @@
+﻿@model K22CNT3_NKL_2210900035_Project2.Models.NGUOI_DUNG
+
+@{
+    ViewBag.Title = "Chi tiết tài khoản người dùng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chi tiết tài khoản người dùng</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ten_dang_nhap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ten_dang_nhap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mat_khau)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mat_khau)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ngay_dang_ky)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ngay_dang_ky)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ma_nguoi_dung }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
